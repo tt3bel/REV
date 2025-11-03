@@ -1,0 +1,14 @@
+{
+  "token": "YOUR_BOT_TOKEN",
+  "clientId": "YOUR_BOT_CLIENT_ID",
+  "guildId": "YOUR_SERVER_ID",
+  "adminRoleId": "ADMIN_ROLE_ID",
+  "logChannelId": "ID_روم_السجلات",
+  "serverName": "اسم_السيرفر",
+  "serverBanner": "رابط_البانر",
+  "serverLogo": "رابط_الصورة",
+  "submissionTitle": "نظام التقديمات",
+  "submissionMessage": "نورت نظام التقديمات",
+  "acceptMessage": "تم قبول طلبك!",
+  "rejectMessage": "تم رفض طلبك."
+}
