@@ -3,19 +3,28 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config(); // ✅ هذا السطر المهم
 
 // تحميل الإعدادات من متغيرات البيئة (الطريقة الآمنة للاستضافة)
 const config = {
-    token: process.env.TOKEN,
-    clientId: process.env.CLIENT_ID,
-    guildId: process.env.GUILD_ID,
-    adminRoleId: process.env.ADMIN_ROLE_ID,
-    logChannelId: process.env.LOG_CHANNEL_ID,
-    serverName: process.env.SERVER_NAME,
-    serverLogo: process.env.SERVER_LOGO,
-    serverBanner: process.env.SERVER_BANNER,
-    // acceptMessage و rejectMessage سيتم قراءتها من قاعدة البيانات
+  TOKEN: process.env.TOKEN,
+  CLIENT_ID: process.env.CLIENT_ID,
+  GUILD_ID: process.env.GUILD_ID,
+  ADMIN_ROLE_ID: process.env.ADMIN_ROLE_ID,
+  LOG_CHANNEL_ID: process.env.LOG_CHANNEL_ID,
+  SERVER_NAME: process.env.SERVER_NAME,
+  SERVER_LOGO: process.env.SERVER_LOGO,
+  SERVER_BANNER: process.env.SERVER_BANNER,
+  SUBMISSION_MESSAGE: process.env.SUBMISSION_MESSAGE,
+  SUBMISSION_TITLE: process.env.SUBMISSION_TITLE,
 };
+
+
+
+
+
+
+
 
 const dbPath = path.join(__dirname, 'database.json');
 
@@ -123,7 +132,7 @@ const commands = [
   }
 ];
 
-const rest = new REST({ version: '9' }).setToken(config.token);
+const rest = new REST({ version: '9' }).setToken(config.TOKEN);
 
 (async () => {
   try {
@@ -723,7 +732,7 @@ client.on('interactionCreate', async interaction => {
 });
 
 // تسجيل الدخول
-client.login(config.token).catch(err => {
+client.login(config.TOKEN).catch(err => {
   console.error('فشل في تسجيل الدخول:', err);
   process.exit(1);
 });
